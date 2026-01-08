@@ -1,9 +1,9 @@
-import { useContext, useEffect } from "react";
-import { ShopContext } from "../context/ShopContext.jsx";
-import { useState } from "react";
-import { assets } from "../assets/assets.js";
-import Title from "../components/Title";
-import ProductItem from "../components/ProductItem";
+import { useContext, useEffect } from 'react';
+import { ShopContext } from '../context/ShopContext.jsx';
+import { useState } from 'react';
+import { assets } from '../assets/assets.js';
+import Title from '../components/Title';
+import ProductItem from '../components/ProductItem';
 
 function Collection() {
   const { products, search, showSearch } = useContext(ShopContext);
@@ -11,7 +11,7 @@ function Collection() {
   const [filterProducts, setFilterProducts] = useState([]);
   const [category, setCategory] = useState([]);
   const [subCategory, setSubCategory] = useState([]);
-  const [sortType, setSortType] = useState("relavent");
+  const [sortType, setSortType] = useState('relavent');
 
   const toggleCategory = (e) => {
     if (category.includes(e.target.value)) {
@@ -34,8 +34,10 @@ function Collection() {
   const applyFilters = () => {
     let productsCopy = products.slice();
 
-    if(showSearch && search){
-      productsCopy = productsCopy.filter(item => item.name.toLowerCase().includes(search.toLowerCase()));
+    if (showSearch && search) {
+      productsCopy = productsCopy.filter((item) =>
+        item.name.toLowerCase().includes(search.toLowerCase())
+      );
     }
 
     if (category.length > 0) {
@@ -57,10 +59,10 @@ function Collection() {
     let fpCopy = filterProducts.slice();
 
     switch (sortType) {
-      case "low_high":
+      case 'low_high':
         setFilterProducts(fpCopy.sort((a, b) => a.price - b.price));
         break;
-      case "high_low":
+      case 'high_low':
         setFilterProducts(fpCopy.sort((a, b) => b.price - a.price));
         break;
       default:
@@ -87,7 +89,7 @@ function Collection() {
         >
           FILTERS
           <img
-            className={`h-3 sm:hidden ${showFilter ? "rotate-90" : ""}`}
+            className={`h-3 sm:hidden ${showFilter ? 'rotate-90' : ''}`}
             src={assets.dropdown_icon}
             alt=""
           />
@@ -95,7 +97,7 @@ function Collection() {
         {/* Category Filter */}
         <div
           className={`border border-gray-300 pl-5 py-3 mt-6 ${
-            showFilter ? "" : "hidden"
+            showFilter ? '' : 'hidden'
           } sm:block`}
         >
           <p className="mb-3 text-sm font-medium">CATEGORIES</p>
@@ -104,27 +106,27 @@ function Collection() {
               <input
                 className="w-3"
                 type="checkbox"
-                value={"Men"}
+                value={'Men'}
                 onChange={toggleCategory}
-              />{" "}
+              />{' '}
               Men
             </p>
             <p className="flex gap-2">
               <input
                 className="w-3"
                 type="checkbox"
-                value={"Women"}
+                value={'Women'}
                 onChange={toggleCategory}
-              />{" "}
+              />{' '}
               Women
             </p>
             <p className="flex gap-2">
               <input
                 className="w-3"
                 type="checkbox"
-                value={"Kids"}
+                value={'Kids'}
                 onChange={toggleCategory}
-              />{" "}
+              />{' '}
               Kids
             </p>
           </div>
@@ -132,7 +134,7 @@ function Collection() {
         {/* SubCategory Filter */}
         <div
           className={`border border-gray-300 pl-5 py-3 my-5 ${
-            showFilter ? "" : "hidden"
+            showFilter ? '' : 'hidden'
           } sm:block`}
         >
           <p className="mb-3 text-sm font-medium">TYPE</p>
@@ -141,27 +143,27 @@ function Collection() {
               <input
                 className="w-3"
                 type="checkbox"
-                value={"Topwear"}
+                value={'Topwear'}
                 onChange={toggleSubCategory}
-              />{" "}
+              />{' '}
               Topwear
             </p>
             <p className="flex gap-2">
               <input
                 className="w-3"
                 type="checkbox"
-                value={"Bottomwear"}
+                value={'Bottomwear'}
                 onChange={toggleSubCategory}
-              />{" "}
+              />{' '}
               Bottomwear
             </p>
             <p className="flex gap-2">
               <input
                 className="w-3"
                 type="checkbox"
-                value={"Winterwear"}
+                value={'Winterwear'}
                 onChange={toggleSubCategory}
-              />{" "}
+              />{' '}
               Winterwear
             </p>
           </div>
@@ -171,7 +173,7 @@ function Collection() {
       {/* Right Side */}
       <div className="flex-1">
         <div className="flex justify-between text-base sm:text-2xl mb-4">
-          <Title text1={"ALL"} text2={"COLLECTIONS"} />
+          <Title text1={'ALL'} text2={'COLLECTIONS'} />
           {/* Product Sort */}
           <select
             onChange={(e) => setSortType(e.target.value)}

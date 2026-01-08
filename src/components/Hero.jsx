@@ -1,4 +1,4 @@
-import { assets } from "../assets/assets";
+import { assets } from '../assets/assets';
 
 function Hero() {
   return (
@@ -23,7 +23,11 @@ function Hero() {
           </div>
         </div>
         {/* Hero Right Side  */}
-        <img src={assets.hero_img} alt="Hero Image" className="w-full sm:w-1/2" />
+        <img
+          src={assets.hero_img}
+          alt="Hero Image"
+          className="w-full sm:w-1/2"
+        />
       </div>
     </>
   );

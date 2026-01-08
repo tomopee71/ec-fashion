@@ -1,9 +1,7 @@
 const NewsletterBox = () => {
-    const onSubmitHandeler = (event) => {
-        event.preventDefault();
-
-    }
-
+  const onSubmitHandeler = (event) => {
+    event.preventDefault();
+  };
 
   return (
     <div className="text-center">
@@ -13,7 +11,10 @@ const NewsletterBox = () => {
       <p className="text-gray-400 mt-3">
         Join our newsletter to stay updated with the latest offers and products.
       </p>
-      <form onSubmit={onSubmitHandeler} className="w-full sm:w-1/2 flex items-center gap-3 mx-auto my-6 border pl-3">
+      <form
+        onSubmit={onSubmitHandeler}
+        className="w-full sm:w-1/2 flex items-center gap-3 mx-auto my-6 border pl-3"
+      >
         <input
           type="email"
           placeholder="Enter your email"

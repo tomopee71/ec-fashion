@@ -12,12 +12,11 @@ function Product() {
   const [size, setSize] = useState('');
 
   const fetchProductData = async () => {
-
     products.map((item) => {
       if (item._id === productId) {
         setProductData(item);
         setImage(item.image[0]);
-        
+
         return null;
       }
     });
@@ -82,32 +81,51 @@ function Product() {
               ))}
             </div>
           </div>
-          <button onClick={()=>addToCart(productData._id, size)} className="bg-black text-white px-8 py-3 text-sm active:bg-gray-700">
+          <button
+            onClick={() => addToCart(productData._id, size)}
+            className="bg-black text-white px-8 py-3 text-sm active:bg-gray-700"
+          >
             ADD TO CART
           </button>
           <hr className="border border-gray-300 mt-8 sm:w-4/5" />
-          <div className='text-sm text-gray-500 mt-5 flex flex-col gap-1'>
+          <div className="text-sm text-gray-500 mt-5 flex flex-col gap-1">
             <p>100% Original product.</p>
             <p>Cash on delivery is available on this product.</p>
             <p>Easy return and exchange policy within 7 days</p>
           </div>
         </div>
       </div>
-              {/* Description & Review Section */}
-      <div className='mt-20'>
-        <div className='flex'>
-          <b className='border border-gray-300 px-5 py-3 text-sm'>Description</b>
-          <p className='border border-gray-300 px-5 py-3 text-sm'>Reviews (122)</p>
+      {/* Description & Review Section */}
+      <div className="mt-20">
+        <div className="flex">
+          <b className="border border-gray-300 px-5 py-3 text-sm">
+            Description
+          </b>
+          <p className="border border-gray-300 px-5 py-3 text-sm">
+            Reviews (122)
+          </p>
         </div>
-        <div className='flex flex-col gap-4 border border-gray-300 px-6 py-6 text-sm text-gray-500'>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta laboriosam reprehenderit eius accusantium? Aspernatur, nam. Eveniet, quam nesciunt architecto officiis odio tempore at. Incidunt dolore eveniet inventore, harum quisquam optio.</p>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam, quos voluptas minima corrupti id magni, delectus fuga at, dignissimos distinctio cum placeat odit iure nobis non quis consequuntur debitis dolor!</p>
+        <div className="flex flex-col gap-4 border border-gray-300 px-6 py-6 text-sm text-gray-500">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
+            laboriosam reprehenderit eius accusantium? Aspernatur, nam. Eveniet,
+            quam nesciunt architecto officiis odio tempore at. Incidunt dolore
+            eveniet inventore, harum quisquam optio.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam,
+            quos voluptas minima corrupti id magni, delectus fuga at,
+            dignissimos distinctio cum placeat odit iure nobis non quis
+            consequuntur debitis dolor!
+          </p>
         </div>
       </div>
       {/* display related products */}
-      
-      <RelatedProducts category={productData.category} subCategory={productData.subCategory}/>
 
+      <RelatedProducts
+        category={productData.category}
+        subCategory={productData.subCategory}
+      />
     </div>
   ) : (
     <div className="opacity-0"></div>
